@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import type { FormEvent } from 'react'
 import { createInsight, getInitials } from '../insightData'
 
 export function UserPage({ onSignOut }: { onSignOut: () => void }) {
@@ -6,7 +7,7 @@ export function UserPage({ onSignOut }: { onSignOut: () => void }) {
   const [searchedName, setSearchedName] = useState('Ada Lovelace')
   const insight = useMemo(() => createInsight(searchedName), [searchedName])
 
-  function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setSearchedName(name)
   }

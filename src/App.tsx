@@ -1,18 +1,8 @@
-import { useState } from 'react'
-import { LandingPage } from './components/Landing'
-import { UserPage } from './components/User'
+import { AppRouter } from './router'
 import './App.css'
 
-type Page = 'landing' | 'user'
-
 function App() {
-  const [page, setPage] = useState<Page>('landing')
-
-  return page === 'landing' ? (
-    <LandingPage onContinue={() => setPage('user')} />
-  ) : (
-    <UserPage onSignOut={() => setPage('landing')} />
-  )
+  return <AppRouter />
 }
 
 export default App
