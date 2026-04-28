@@ -1,7 +1,15 @@
 import { GithubIcon } from './GithubIcon'
 import { featureCards, sampleSignals } from '../insightData'
+import { useNavigate } from 'react-router'
 
-export function LandingPage({ onContinue }: { onContinue: () => void }) {
+export function LandingPage() {
+	const navigate = useNavigate()
+
+	function onContinue() {
+		navigate('/user')
+	}
+
+
 	return (
 		<main className="landing-page">
 			<nav className="topbar" aria-label="Main navigation">

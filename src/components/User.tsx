@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { createInsight, getInitials } from '../insightData'
+import { useNavigate } from 'react-router'
 
-export function UserPage({ onSignOut }: { onSignOut: () => void }) {
+export function UserPage() {
+  const navigate = useNavigate();
   const [name, setName] = useState('Ada Lovelace')
   const [searchedName, setSearchedName] = useState('Ada Lovelace')
   const insight = useMemo(() => createInsight(searchedName), [searchedName])
@@ -10,6 +12,10 @@ export function UserPage({ onSignOut }: { onSignOut: () => void }) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setSearchedName(name)
+  }
+
+  function onSignOut() {
+    navigate('/')
   }
 
   return (
