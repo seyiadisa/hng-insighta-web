@@ -1,15 +1,8 @@
 import { GithubIcon } from './GithubIcon'
-import { featureCards, sampleSignals } from '../insightData'
-import { useNavigate } from 'react-router'
+import { featureCards, sampleSignals } from '../utils/landingData'
+import { Link } from 'react-router'
 
 export function LandingPage() {
-	const navigate = useNavigate()
-
-	function onContinue() {
-		navigate('/user')
-	}
-
-
 	return (
 		<main className="landing-page">
 			<nav className="topbar" aria-label="Main navigation">
@@ -17,6 +10,9 @@ export function LandingPage() {
 					<span className="brand-mark">IL</span>
 					<span>Insighta Labs</span>
 				</a>
+				<Link className="text-button login-button" to="/login">
+					Login
+				</Link>
 			</nav>
 
 			<section className="hero-shell" id="top">
@@ -28,10 +24,10 @@ export function LandingPage() {
 						clean profile so your backend can turn public name data into
 						something people can actually understand.
 					</p>
-					<button className="github-button" type="button" onClick={onContinue}>
+					<Link className="github-button" to="/login">
 						<GithubIcon />
-						Continue with GitHub
-					</button>
+						Get Started
+					</Link>
 
 					<div className="feature-strip" aria-label="Insighta data providers">
 						{featureCards.map((feature) => (
